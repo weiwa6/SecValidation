@@ -7,7 +7,7 @@ if __name__ == '__main__':
     app = Flask(__name__)
     import Modules.umbrella
     import Modules.amp4e
-#    app.run(threaded=True, port=5555)
+
     while True:
         try:
             app.run(threaded=True, host='172.17.0.1', port=5000) #Listen on the docker nic from SXO Connector
