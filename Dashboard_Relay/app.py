@@ -41,4 +41,4 @@ def handle_tr_formatted_error(exception):
 
 
 if __name__ == '__main__':
-    app.run()
+    app.run(port=5555)

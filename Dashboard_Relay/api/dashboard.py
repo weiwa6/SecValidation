@@ -52,37 +52,37 @@ def get_sec_validation(period):
 #    period = 'last_24_hours'
     response = api.utils.get_tile_model()
 
-    import subprocess, json, datetime
-
-    rr = subprocess.check_output('nslookup -type=txt securex_validation.anyconnect.me'.split()).decode("utf-8")
-    rr = rr[rr.find('text = "') + 8:]
-    rr = rr[:rr.find(']') + 1]
-    rr = rr.replace('\\', "")
-    rr = json.loads(rr)
+    import json, datetime
+    rr = json.loads(api.utils.getCasebookNote('SecurityValidation_Results'))
     umb_result = [0, 0]
     amp_result = [0, 0]
+    ips_result = [0, 0]
+
+    result_status = [('❌', 'Failed'),
+                 ('✅', 'Successful')]
+    response['data'].append("|   |   |   |   |")
+    response['data'].append("| - | - | - | - |")
     if 'umb' in rr:
         umb_result = rr[rr.index('umb') + 1: rr.index('umb') + 3]
         umb_result[1] = datetime.datetime.fromtimestamp(umb_result[1]).strftime("%d-%m-%Y %H:%M:%S ") + str(
             datetime.datetime.now().astimezone().tzinfo)
+        response['data'].append("| [Umbrella DNS Checks](https://umbrella.cisco.com/) | %s | %s | %s |"
+                                % (result_status[umb_result[0]][0], result_status[umb_result[0]][1], umb_result[1]))
     if 'amp' in rr:
         amp_result = rr[rr.index('amp') + 1: rr.index('amp') + 3]
         amp_result[1] = datetime.datetime.fromtimestamp(amp_result[1]).strftime("%d-%m-%Y %H:%M:%S ") + str(
             datetime.datetime.now().astimezone().tzinfo)
-    result_status = [('❌', 'Failed'),
-                     ('✅', 'Successful')]
+        response['data'].append("| [AMP Malware Checks](https://console.apjc.amp.cisco.com/) | %s | %s | %s |"
+                                % (result_status[amp_result[0]][0], result_status[amp_result[0]][1], amp_result[1]))
+    if 'ips' in rr:
+        ips_result = rr[rr.index('ips') + 1: rr.index('ips') + 3]
+        ips_result[1] = datetime.datetime.fromtimestamp(ips_result[1]).strftime("%d-%m-%Y %H:%M:%S ") + str(
+            datetime.datetime.now().astimezone().tzinfo)
+        response['data'].append("| [IPS Event Checks](https://visibility.apjc.amp.cisco.com/incidents) | %s | %s | %s |"
+                                % (result_status[ips_result[0]][0], result_status[ips_result[0]][1], ips_result[1]))
 
-    response['data'].append("|   |   |   |   |")
-    response['data'].append("| - | - | - | - |")
+
 #    response['data'].append("| [Umbrella DNS Checks](https://umbrella.cisco.com/) | ✅ | Successful |")
 #    response['data'].append("| [AMP Malware Checks](https://console.apjc.amp.cisco.com/) | ❌ | Failed |")
 
-    response['data'].append("| [Umbrella DNS Checks](https://umbrella.cisco.com/) | %s | %s | %s |"
-                            % (result_status[umb_result[0]][0], result_status[umb_result[0]][1], umb_result[1]))
-    response['data'].append("| [AMP Malware Checks](https://console.apjc.amp.cisco.com/) | %s | %s | %s |"
-                            % (result_status[amp_result[0]][0], result_status[amp_result[0]][1], amp_result[1]))
-
     return response
-
-
-

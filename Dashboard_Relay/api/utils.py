@@ -3,7 +3,7 @@ from authlib.jose.errors import DecodeError, BadSignatureError
 from flask import request, current_app, jsonify
 from datetime import datetime, timedelta
 from api.errors import AuthorizationError, InvalidArgumentError
-
+import requests, json
 
 def get_auth_token():
     """
@@ -235,3 +235,33 @@ def markdown_tile(data):
     mod = get_tile_model()
     mod['data'] = data
     return mod
+
+
+def getCasebookNote(title):
+    url = "https://visibility.apjc.amp.cisco.com/iroh/oauth2/token"
+
+    payload = 'grant_type=client_credentials'
+    headers = {
+        'Content-Type': 'application/x-www-form-urlencoded',
+        'Accept': 'application/json',
+        'Authorization': current_app.config['SECUREX_CLIENT']
+    }
+
+    response = requests.request("POST", url, headers=headers, data=payload)
+    resp = json.loads(response.text)
+
+    if "access_token" in resp:
+        url = "https://private.intel.apjc.amp.cisco.com/ctia/casebook/search?query=title:" + title
+        payload = ""
+        headers = {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+            'Authorization': 'Bearer ' + resp['access_token']
+        }
+
+        response = requests.request("GET", url, headers=headers, data=payload)
+        resp = json.loads(response.text)
+        if len(resp) == 1:
+            return resp[0]["description"]
+    return "[]"
+
