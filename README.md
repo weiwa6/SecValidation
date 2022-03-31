@@ -67,7 +67,7 @@ This workflow will query your local DNS server (Cisco Umbrella VA) with a malici
 
 ### SecureX Workflow - Secure\_Endpoint\_Malware\_Validation
 
-This workflow will drop a EICAR test file to your Windows PC, (with Cisco Secure Endpoint already installed), via remote PowerShell. It will check logs from Secure Endpoint API and Splunk to confirm successful detection.  
+This workflow will drop an EICAR test file to your Windows PC, (with Cisco Secure Endpoint already installed), via remote PowerShell. It will check logs from Secure Endpoint API and Splunk to confirm successful detection.  
 Make sure PowerShell Remote service and firewalls permit traffic from your SXO Remote connector to the PC
 
 1.  Import Secure\_Endpoint\_Malware\_Validation.json workflow
@@ -82,7 +82,7 @@ Make sure PowerShell Remote service and firewalls permit traffic from your SXO R
 
 ### SecureX Workflow - IPS\_Validation
 
-This workflow will launch a dummy Log4j attempt to one of your internal web server. Make sure NGFW are deployed to detect the traffic between SXO Remote and the web server. FMC should be integrated with SecureX to send those events to SSE, which should be promoted to incidents. The workflow will validate the private intelligence sources and Splunk to confirm successful detection.
+This workflow will launch a dummy Log4j attempt to one of your internal web server. Make sure NGFW are deployed to detect such traffic. FMC should be integrated with SecureX to send those events to SSE, which should be promoted to incidents. The workflow will validate the private intelligence sources and Splunk to confirm successful detection.
 
 1.  Import IPS\_Validation.json workflow
 2.  Update the internal web server target IP in "Lab\_Apache\_SXO"    
