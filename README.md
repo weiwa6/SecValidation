@@ -84,12 +84,21 @@ Make sure PowerShell Remote service and firewalls permit traffic from your SXO R
 
 This workflow will launch a dummy Log4j attempt to one of your internal web server. Make sure NGFW are deployed to detect such traffic. FMC should be integrated with SecureX to send those events to SSE, which should be promoted to incidents. The workflow will validate the private intelligence sources and Splunk to confirm successful detection.
 
-1.  Import IPS\_Validation.json workflow
-2.  Update the internal web server target IP in "Lab\_Apache\_SXO"    
+1. Import IPS\_Validation.json workflow
+2. Update the internal web server target IP in "Lab\_Apache\_SXO"    
     ![](screenshot/ips_target.png)
-3.  Update workflow variable:  
+3. Update workflow variable:  
     "Remote\_SXO\_IP" - this is your Remote SXO IP address, which will be used for CTR and Splunk log search    
     ![](screenshot/ips_variables.png)
-4.  If Splunk is in use, update Splunk Target with Credentials. Update Splunk query syntax against your deployment if necessary.    
+4. If Splunk is in use, update Splunk Target with Credentials. Update Splunk query syntax against your deployment if necessary.    
     ![](screenshot/ips_splunk.png)
-5.  Add scheduler trigger for the workflows if required.
+5. Add scheduler trigger for the workflows if required.
+
+### Dashboard tiles
+
+1. Download and deploy "Dashboard_Relay" to your server.
+2. Rename "config.py.example" to "config.py" with your JWT keys
+3. Update "SECUREX_CLIENT" with your SecureX Client credential, minimal permission to access casebook to get the test results.
+4. Update SecureX URL in utls.py and dashboard.py, if not in SecureX APJC region.
+5. Add a new "Generic Serverless Relay" module and enable the tile to the dashboard.
+    ![](screenshot/tile.png)

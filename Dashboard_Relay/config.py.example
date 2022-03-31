@@ -1,0 +1,11 @@
+import os
+
+from __version__ import VERSION
+
+
+class Config:
+    VERSION = VERSION
+#    SECRET_KEY = os.environ.get('SECRET_KEY', None)
+    SECRET_KEY = 'Your Secret_key'
+    TOKEN = '''Your Token'''
+    SECUREX_CLIENT = 'Basic #base64/username:password'
