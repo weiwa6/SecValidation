@@ -53,7 +53,7 @@ There are multiple components required to automate the process. Here are the hig
 
 ### SecureX Workflow - Umbrella DNS Validation
 
-This workflow will query your local DNS server (Cisco Umbrella VA) with a malicious DNS. It expects a sink-hole address response and checks logs from CTR/Splunk.
+This workflow will query your local DNS server (Cisco Umbrella VA) with a malicious DNS request. It expects a sink-hole address response and checks logs from CTR/Splunk.
 
 1. Import Umbrella\_DNS\_Validation.json workflow.
 2. Confirm the target is using the Remote connector as IP "172.17.0.1", which is the local IP on docker NIC. Do NOT change this IP.  
