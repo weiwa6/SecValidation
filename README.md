@@ -19,7 +19,7 @@ More to come for other products such as ESA, WSA, Stealthwatch, etc.
 
 There are multiple components required to automate the process. Here are the high level steps for each use case:
 
-1.  SecureX Remote generate attack activity from SXO Remote, e.g. malicious DNS lookup against Umbrella VA
+1.  SecureX Remote Connector generate attack activity, e.g. malicious DNS lookup against Umbrella VA
 2.  Check expected result, e.g. DNS sinkhole address
 3.  Check SxTR Sighting
 4.  (Optional) Check SIEM logs, e.g. Splunk API query
