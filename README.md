@@ -55,33 +55,37 @@ There are multiple components required to automate the process. Here are the hig
 
 This workflow will query your local DNS server (Cisco Umbrella VA) with a malicious DNS. It expects a sink-hole address response and checks logs from CTR/Splunk.
 
-1.  Import Umbrella\_DNS\_Validation.json workflow.
-2.  Confirm the target is using the Remote connector as IP "172.17.0.1", which is the local IP on docker NIC. Do NOT change this IP.  
+1. Import Umbrella\_DNS\_Validation.json workflow.
+2. Confirm the target is using the Remote connector as IP "172.17.0.1", which is the local IP on docker NIC. Do NOT change this IP.  
     ![](screenshot/remote_target.png)
-3.  Update workflow variables:  
+3. Update workflow variables:  
     "DNS\_Server" - this is your internal Umbrella VA to resolve DNS requests  
     "Remote\_SXO\_IP" -  this is your Remote SXO IP address, which will be used for CTR and Splunk log search  
     ![](screenshot/umb_variables.png)
-4.  If Splunk is in use, update Splunk Target with Credentials. Update Splunk query syntax against your deployment if necessary.    
+4. If Splunk is in use, update Splunk Target with Credentials. Update Splunk query syntax against your deployment if necessary.    
     ![](screenshot/splunk_target.png)  
     ![](screenshot/umb_splunk.png)
-5.  If Webex is in use, update Webex Target and Credentials.
-6.  Add scheduler trigger for the workflows if required.
+5. If Webex is in use, update Webex Target and Credentials.
+6. Add scheduler trigger for the workflows if required.
+7. Here is the screenshot of a webex message showing the workflow result.    
+    ![](screenshot/webex_umb.png)
 
 ### SecureX Workflow - Secure\_Endpoint\_Malware\_Validation
 
 This workflow will drop an EICAR test file to your Windows PC, (with Cisco Secure Endpoint already installed), via remote PowerShell. It will check logs from Secure Endpoint API and Splunk to confirm successful detection.  
 Make sure PowerShell Remote service and firewalls permit traffic from your SXO Remote connector to the PC
 
-1.  Import Secure\_Endpoint\_Malware\_Validation.json workflow
-2.  Update workflow variables:  
+1. Import Secure\_Endpoint\_Malware\_Validation.json workflow
+2. Update workflow variables:  
     "Query\_IP" - this is your PC IP address  
     "username" - username that  powershell will use to execute  
     "password" - password that powershell will use to execute    
     ![](screenshot/amp_variables.png)
-3.  If Splunk is in use, update Splunk Target with Credentials. Update Splunk query syntax against your deployment if necessary.  
+3. If Splunk is in use, update Splunk Target with Credentials. Update Splunk query syntax against your deployment if necessary.  
     ![](screenshot/amp_splunk.png)  
-4.  Add scheduler trigger for the workflows if required.
+4. Add scheduler trigger for the workflows if required.
+5. Here is the screenshot of a webex message showing the workflow result.    
+    ![](screenshot/webex_amp.png)
 
 ### SecureX Workflow - IPS\_Validation
 
@@ -96,12 +100,14 @@ This workflow will launch a dummy Log4j attempt to one of your internal web serv
 4. If Splunk is in use, update Splunk Target with Credentials. Update Splunk query syntax against your deployment if necessary.    
     ![](screenshot/ips_splunk.png)
 5. Add scheduler trigger for the workflows if required.
+6. Here is the screenshot of a webex message showing the workflow result.    
+    ![](screenshot/webex_ips.png)
 
-### Dashboard tiles
+### Dashboard Tiles
 
 1. Download and deploy "Dashboard_Relay" to your server.
 2. Rename "config.py.example" to "config.py" with your JWT keys
 3. Update "SECUREX_CLIENT" with your SecureX Client credential, minimal permission to access casebook to get the test results.
 4. Update SecureX URL in utls.py and dashboard.py, if not in SecureX APJC region.
-5. Add a new "Generic Serverless Relay" module and enable the tile to the dashboard.
+5. Add a new "Generic Serverless Relay" module and enable the tile to the dashboard.    
     ![](screenshot/tile.png)
