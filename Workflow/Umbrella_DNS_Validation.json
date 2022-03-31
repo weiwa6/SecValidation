@@ -7,45 +7,6 @@
     "base_type": "workflow",
     "variables": [
       {
-        "schema_id": "datatype.integer",
-        "properties": {
-          "value": 0,
-          "scope": "local",
-          "name": "loopCount",
-          "type": "datatype.integer",
-          "is_required": false,
-          "is_invisible": false
-        },
-        "unique_name": "variable_workflow_01SFN9YZNXGHG4qZvxD4ahBNWNHPg6m2mx9",
-        "object_type": "variable_workflow"
-      },
-      {
-        "schema_id": "datatype.string",
-        "properties": {
-          "value": "172.28.10.54",
-          "scope": "local",
-          "name": "Remote_SXO_IP",
-          "type": "datatype.string",
-          "is_required": false,
-          "is_invisible": false
-        },
-        "unique_name": "variable_workflow_01OZI3HXB2P2Q2JZvnZYciN7rc40SQbrgTU",
-        "object_type": "variable_workflow"
-      },
-      {
-        "schema_id": "datatype.string",
-        "properties": {
-          "value": "172.28.10.53",
-          "scope": "input",
-          "name": "DNS_Server",
-          "type": "datatype.string",
-          "is_required": true,
-          "is_invisible": false
-        },
-        "unique_name": "variable_workflow_01OZHZPPIRC0X3HodfnxZPDcHW77E5CGZdH",
-        "object_type": "variable_workflow"
-      },
-      {
         "schema_id": "datatype.number",
         "properties": {
           "value": 0,
@@ -85,6 +46,32 @@
         "object_type": "variable_workflow"
       },
       {
+        "schema_id": "datatype.integer",
+        "properties": {
+          "value": 0,
+          "scope": "local",
+          "name": "loopCount",
+          "type": "datatype.integer",
+          "is_required": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_01SFN9YZNXGHG4qZvxD4ahBNWNHPg6m2mx9",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "172.28.10.53",
+          "scope": "input",
+          "name": "DNS_Server",
+          "type": "datatype.string",
+          "is_required": true,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_01OZHZPPIRC0X3HodfnxZPDcHW77E5CGZdH",
+        "object_type": "variable_workflow"
+      },
+      {
         "schema_id": "datatype.string",
         "properties": {
           "value": "www.examplemalwaredomain.com",
@@ -95,6 +82,19 @@
           "is_invisible": false
         },
         "unique_name": "variable_workflow_01OZHZZ5HS06V1SYKBNoAQoxKBsnp0XaUfz",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "172.28.10.54",
+          "scope": "local",
+          "name": "Remote_SXO_IP",
+          "type": "datatype.string",
+          "is_required": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_01OZI3HXB2P2Q2JZvnZYciN7rc40SQbrgTU",
         "object_type": "variable_workflow"
       }
     ],
@@ -193,7 +193,8 @@
                   "target": {
                     "no_target": true
                   },
-                  "workflow_id": "definition_workflow_01VZ56WAONG3P1dyKtrQNdsN1BQnFRitWbe"
+                  "workflow_id": "definition_workflow_01VZ56WAONG3P1dyKtrQNdsN1BQnFRitWbe",
+                  "workflow_name": "Update_CaseBook_Results"
                 },
                 "object_type": "definition_activity"
               },
@@ -305,7 +306,8 @@
                     "target_id": "definition_target_01GWVYO6DESJV4QggBd683EEfuO1pm4lQAb",
                     "target_type": "web-service.endpoint"
                   },
-                  "workflow_id": "definition_workflow_01QNMUXQ1GBNG6CUURvLmmcvEUYrv83OrZV"
+                  "workflow_id": "definition_workflow_01QNMUXQ1GBNG6CUURvLmmcvEUYrv83OrZV",
+                  "workflow_name": "Test Webex Msg"
                 },
                 "object_type": "definition_activity"
               },
@@ -330,7 +332,8 @@
                   "target": {
                     "no_target": true
                   },
-                  "workflow_id": "definition_workflow_01VZ56WAONG3P1dyKtrQNdsN1BQnFRitWbe"
+                  "workflow_id": "definition_workflow_01VZ56WAONG3P1dyKtrQNdsN1BQnFRitWbe",
+                  "workflow_name": ""
                 },
                 "object_type": "definition_activity"
               },
@@ -356,14 +359,14 @@
       {
         "unique_name": "definition_activity_01RD8ELM3I9Z72ZKFsbeere8J65cACzMNNd",
         "name": "Sleep",
-        "title": "Sleep for 2 mins for Umbrella logs",
+        "title": "Sleep for 5 mins for Umbrella logs",
         "type": "core.sleep",
         "base_type": "activity",
         "properties": {
           "continue_on_failure": false,
-          "display_name": "Sleep for 2 mins for Umbrella logs",
+          "display_name": "Sleep for 5 mins for Umbrella logs",
           "skip_execution": false,
-          "sleep_interval": 120
+          "sleep_interval": 300
         },
         "object_type": "definition_activity"
       },
@@ -398,7 +401,8 @@
                 "target_id": "definition_target_01N4MYNOZZVQA411y0Bl7XSy5FI0ZRtVaQp",
                 "target_type": "web-service.endpoint"
               },
-              "workflow_id": "definition_workflow_01PP75S3LTBW4420OZU3rdHWKHFnE6aC7yH"
+              "workflow_id": "definition_workflow_01PP75S3LTBW4420OZU3rdHWKHFnE6aC7yH",
+              "workflow_name": "Threat Response - Generate Access Token"
             },
             "object_type": "definition_activity"
           },
@@ -448,7 +452,8 @@
                 "target_id": "definition_target_01N4MYNIBHXI02Cg8SVeQ5JFXq2aPYvotWF",
                 "target_type": "web-service.endpoint"
               },
-              "workflow_id": "definition_workflow_01PP78TYLE76D6188QkWvzWydNU6L8PtlvS"
+              "workflow_id": "definition_workflow_01PP78TYLE76D6188QkWvzWydNU6L8PtlvS",
+              "workflow_name": "Threat Response - Enrich Observable"
             },
             "object_type": "definition_activity"
           },
@@ -486,7 +491,7 @@
           "action_timeout": 180,
           "continue_on_failure": false,
           "display_name": "Find latest event",
-          "script": "import sys,json\nfrom datetime import datetime\nrawList = json.loads(sys.argv[1])\ntarget = sys.argv[2]\nfound = datetime.utcfromtimestamp(1)\nfound_str = '1970-01-01T00:00:01.000Z'\nfor item in rawList:\n    if 'targets' in item:\n        for target in item['targets']:\n            if 'observables' in target:\n                for observable in target['observables']:\n                    if observable['value'] == target:\n                        newfounddate=datetime.strptime(item['observed_time']['start_time'],'%Y-%m-%dT%H:%M:%S.%fZ')\n                        if newfounddate > found:\n                            found = newfounddate\n                            found_str = item['observed_time']['start_time']\n",
+          "script": "import sys,json\nfrom datetime import datetime\nrawList = json.loads(sys.argv[1])\nsearchtarget = sys.argv[2]\nfound = datetime.utcfromtimestamp(1)\nfound_str = '1970-01-01T00:00:01.000Z'\nfor item in rawList:\n    if 'short_description' in item:\n        for target in item['targets']:\n            if 'observables' in target:\n                for observable in target['observables']:\n                    if observable['value'] == searchtarget:\n                        newfounddate=datetime.strptime(item['observed_time']['start_time'],'%Y-%m-%dT%H:%M:%S.%fZ')\n                        if newfounddate > found:\n                            found = newfounddate\n                            found_str = item['observed_time']['start_time']\n",
           "script_arguments": [
             "$activity.definition_activity_01OZJFLQKBTZC0TfioS3tcpDYX2gi0B52F7.output.jsonpath_queries.sightings$",
             "$workflow.definition_workflow_01OZHYHOXNSLK031MyVrgnnwHhGHjl5WKAZ.local.variable_workflow_01OZI3HXB2P2Q2JZvnZYciN7rc40SQbrgTU$"
@@ -577,7 +582,8 @@
                     "target_id": "definition_target_01GWVYO6DESJV4QggBd683EEfuO1pm4lQAb",
                     "target_type": "web-service.endpoint"
                   },
-                  "workflow_id": "definition_workflow_01QNMUXQ1GBNG6CUURvLmmcvEUYrv83OrZV"
+                  "workflow_id": "definition_workflow_01QNMUXQ1GBNG6CUURvLmmcvEUYrv83OrZV",
+                  "workflow_name": ""
                 },
                 "object_type": "definition_activity"
               },
@@ -602,7 +608,8 @@
                   "target": {
                     "no_target": true
                   },
-                  "workflow_id": "definition_workflow_01VZ56WAONG3P1dyKtrQNdsN1BQnFRitWbe"
+                  "workflow_id": "definition_workflow_01VZ56WAONG3P1dyKtrQNdsN1BQnFRitWbe",
+                  "workflow_name": ""
                 },
                 "object_type": "definition_activity"
               },
@@ -662,7 +669,8 @@
                   "target": {
                     "no_target": true
                   },
-                  "workflow_id": "definition_workflow_01VZ56WAONG3P1dyKtrQNdsN1BQnFRitWbe"
+                  "workflow_id": "definition_workflow_01VZ56WAONG3P1dyKtrQNdsN1BQnFRitWbe",
+                  "workflow_name": ""
                 },
                 "object_type": "definition_activity"
               },
@@ -687,7 +695,8 @@
                     "target_id": "definition_target_01GWVYO6DESJV4QggBd683EEfuO1pm4lQAb",
                     "target_type": "web-service.endpoint"
                   },
-                  "workflow_id": "definition_workflow_01QNMUXQ1GBNG6CUURvLmmcvEUYrv83OrZV"
+                  "workflow_id": "definition_workflow_01QNMUXQ1GBNG6CUURvLmmcvEUYrv83OrZV",
+                  "workflow_name": ""
                 },
                 "object_type": "definition_activity"
               },
@@ -710,7 +719,8 @@
                   "target": {
                     "no_target": true
                   },
-                  "workflow_id": "definition_workflow_01JANGI152PWM5WXe1bvW1lHwfhcBNBpd6M"
+                  "workflow_id": "definition_workflow_01JANGI152PWM5WXe1bvW1lHwfhcBNBpd6M",
+                  "workflow_name": "Time - DateTime to Unix Epoch"
                 },
                 "object_type": "definition_activity"
               },
@@ -783,7 +793,8 @@
                             "target_id": "definition_target_01SAMN559U9YA0ttEU0y1pV9fgPRj6V5kcP",
                             "target_type": "web-service.endpoint"
                           },
-                          "workflow_id": "definition_workflow_01SAMNFWWJXFZ0HvEESDgY4Z0JTqbPylfQ7"
+                          "workflow_id": "definition_workflow_01SAMNFWWJXFZ0HvEESDgY4Z0JTqbPylfQ7",
+                          "workflow_name": "Splunk_Search"
                         },
                         "object_type": "definition_activity"
                       },
@@ -881,7 +892,8 @@
                                     "target_id": "definition_target_01SAMN559U9YA0ttEU0y1pV9fgPRj6V5kcP",
                                     "target_type": "web-service.endpoint"
                                   },
-                                  "workflow_id": "definition_workflow_01SAMNFWWJXFZ0HvEESDgY4Z0JTqbPylfQ7"
+                                  "workflow_id": "definition_workflow_01SAMNFWWJXFZ0HvEESDgY4Z0JTqbPylfQ7",
+                                  "workflow_name": ""
                                 },
                                 "object_type": "definition_activity"
                               },
@@ -931,7 +943,8 @@
                     "target_id": "definition_target_01SAMN559U9YA0ttEU0y1pV9fgPRj6V5kcP",
                     "target_type": "web-service.endpoint"
                   },
-                  "workflow_id": "definition_workflow_01SAMNFWWJXFZ0HvEESDgY4Z0JTqbPylfQ7"
+                  "workflow_id": "definition_workflow_01SAMNFWWJXFZ0HvEESDgY4Z0JTqbPylfQ7",
+                  "workflow_name": ""
                 },
                 "object_type": "definition_activity"
               }
@@ -1183,7 +1196,8 @@
                 "target_type": "web-service.endpoint",
                 "use_workflow_target": true
               },
-              "workflow_id": "definition_workflow_01PP790MKJNWV6XyJuLdUyNlM2UV3JJACez"
+              "workflow_id": "definition_workflow_01PP790MKJNWV6XyJuLdUyNlM2UV3JJACez",
+              "workflow_name": "Webex Teams - Search for Room"
             },
             "object_type": "definition_activity"
           },
@@ -1211,7 +1225,8 @@
                 "target_type": "web-service.endpoint",
                 "use_workflow_target": true
               },
-              "workflow_id": "definition_workflow_01PP78DJMXS415nTjonujf03ROkr6t2PNyw"
+              "workflow_id": "definition_workflow_01PP78DJMXS415nTjonujf03ROkr6t2PNyw",
+              "workflow_name": "Webex Teams - Post Message to Room"
             },
             "object_type": "definition_activity"
           },
@@ -1238,7 +1253,11 @@
         "categories": [
           "category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf"
         ]
-      }
+      },
+      "dependent_workflows": [
+        "definition_workflow_01PP790MKJNWV6XyJuLdUyNlM2UV3JJACez",
+        "definition_workflow_01PP78DJMXS415nTjonujf03ROkr6t2PNyw"
+      ]
     },
     {
       "workflow": {
@@ -1251,14 +1270,27 @@
           {
             "schema_id": "datatype.string",
             "properties": {
-              "value": "SecurityValidation_Results",
+              "value": "umb",
               "scope": "input",
-              "name": "Casebook_Title",
+              "name": "Key",
               "type": "datatype.string",
               "is_required": true,
               "is_invisible": false
             },
-            "unique_name": "variable_workflow_01VZ5NL1SKRA46iklU4XFRFiHaUvS5oZcQZ",
+            "unique_name": "variable_workflow_01VZ5QT24AIMB1SmR8Bh14EI0uQSUi8qYL8",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "local",
+              "name": "Case_ID",
+              "type": "datatype.string",
+              "is_required": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_01VZ63H9N032Q1jwprfi8zxSfWzZ5IxQT7w",
             "object_type": "variable_workflow"
           },
           {
@@ -1277,14 +1309,14 @@
           {
             "schema_id": "datatype.string",
             "properties": {
-              "value": "umb",
+              "value": "SecurityValidation_Results",
               "scope": "input",
-              "name": "Key",
+              "name": "Casebook_Title",
               "type": "datatype.string",
               "is_required": true,
               "is_invisible": false
             },
-            "unique_name": "variable_workflow_01VZ5QT24AIMB1SmR8Bh14EI0uQSUi8qYL8",
+            "unique_name": "variable_workflow_01VZ5NL1SKRA46iklU4XFRFiHaUvS5oZcQZ",
             "object_type": "variable_workflow"
           },
           {
@@ -1298,19 +1330,6 @@
               "is_invisible": false
             },
             "unique_name": "variable_workflow_01VZ5QWV808PR6QUetS8RdNIItvujcq4hax",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "local",
-              "name": "Case_ID",
-              "type": "datatype.string",
-              "is_required": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_01VZ63H9N032Q1jwprfi8zxSfWzZ5IxQT7w",
             "object_type": "variable_workflow"
           }
         ],
@@ -1347,7 +1366,8 @@
                 "target_id": "definition_target_01N4MYNOZZVQA411y0Bl7XSy5FI0ZRtVaQp",
                 "target_type": "web-service.endpoint"
               },
-              "workflow_id": "definition_workflow_01PP75S3LTBW4420OZU3rdHWKHFnE6aC7yH"
+              "workflow_id": "definition_workflow_01PP75S3LTBW4420OZU3rdHWKHFnE6aC7yH",
+              "workflow_name": "Threat Response - Generate Access Token"
             },
             "object_type": "definition_activity"
           },
@@ -1623,7 +1643,8 @@
                         "target_id": "definition_target_01FX4PWDYQ12U7DMWWMZNO3t2gzone1SYIl",
                         "target_type": "web-service.endpoint"
                       },
-                      "workflow_id": "definition_workflow_01PP75X6VPQNK4hKE1XQXIMeIcHrE1khIML"
+                      "workflow_id": "definition_workflow_01PP75X6VPQNK4hKE1XQXIMeIcHrE1khIML",
+                      "workflow_name": "Threat Response - Create Casebook"
                     },
                     "object_type": "definition_activity"
                   }
@@ -1635,7 +1656,11 @@
         "categories": [
           "category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf"
         ]
-      }
+      },
+      "dependent_workflows": [
+        "definition_workflow_01PP75S3LTBW4420OZU3rdHWKHFnE6aC7yH",
+        "definition_workflow_01PP75X6VPQNK4hKE1XQXIMeIcHrE1khIML"
+      ]
     },
     {
       "workflow": {
@@ -1645,6 +1670,19 @@
         "type": "generic.workflow",
         "base_type": "workflow",
         "variables": [
+          {
+            "schema_id": "datatype.integer",
+            "properties": {
+              "value": 3000,
+              "scope": "input",
+              "name": "timeRangeSec",
+              "type": "datatype.integer",
+              "is_required": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_01SB1SU7MRH735Vt6Pi4gdCxfAhjtRZGGgd",
+            "object_type": "variable_workflow"
+          },
           {
             "schema_id": "datatype.integer",
             "properties": {
@@ -1695,19 +1733,6 @@
               "is_invisible": false
             },
             "unique_name": "variable_workflow_01SFN7HWC1KXR1e3poqpsE4TJyBPr1t877T",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.integer",
-            "properties": {
-              "value": 3000,
-              "scope": "input",
-              "name": "timeRangeSec",
-              "type": "datatype.integer",
-              "is_required": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_01SB1SU7MRH735Vt6Pi4gdCxfAhjtRZGGgd",
             "object_type": "variable_workflow"
           },
           {
@@ -1791,7 +1816,8 @@
                       "target": {
                         "no_target": true
                       },
-                      "workflow_id": "definition_workflow_01JANGI152PWM5WXe1bvW1lHwfhcBNBpd6M"
+                      "workflow_id": "definition_workflow_01JANGI152PWM5WXe1bvW1lHwfhcBNBpd6M",
+                      "workflow_name": "Time - DateTime to Unix Epoch"
                     },
                     "object_type": "definition_activity"
                   },
@@ -2316,7 +2342,8 @@
                                 "target_id": "definition_target_01GWVYO6DESJV4QggBd683EEfuO1pm4lQAb",
                                 "target_type": "web-service.endpoint"
                               },
-                              "workflow_id": "definition_workflow_01QNMUXQ1GBNG6CUURvLmmcvEUYrv83OrZV"
+                              "workflow_id": "definition_workflow_01QNMUXQ1GBNG6CUURvLmmcvEUYrv83OrZV",
+                              "workflow_name": ""
                             },
                             "object_type": "definition_activity"
                           }
@@ -2373,7 +2400,8 @@
                         "target_id": "definition_target_01GWVYO6DESJV4QggBd683EEfuO1pm4lQAb",
                         "target_type": "web-service.endpoint"
                       },
-                      "workflow_id": "definition_workflow_01QNMUXQ1GBNG6CUURvLmmcvEUYrv83OrZV"
+                      "workflow_id": "definition_workflow_01QNMUXQ1GBNG6CUURvLmmcvEUYrv83OrZV",
+                      "workflow_name": ""
                     },
                     "object_type": "definition_activity"
                   }
@@ -2385,16 +2413,20 @@
         "categories": [
           "category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf"
         ]
-      }
+      },
+      "dependent_workflows": [
+        "definition_workflow_01JANGI152PWM5WXe1bvW1lHwfhcBNBpd6M",
+        "definition_workflow_01QNMUXQ1GBNG6CUURvLmmcvEUYrv83OrZV"
+      ]
     }
   ],
   "atomic_workflows": [
-    "definition_workflow_01PP75X6VPQNK4hKE1XQXIMeIcHrE1khIML",
-    "definition_workflow_01PP790MKJNWV6XyJuLdUyNlM2UV3JJACez",
-    "definition_workflow_01PP78DJMXS415nTjonujf03ROkr6t2PNyw",
     "definition_workflow_01PP75S3LTBW4420OZU3rdHWKHFnE6aC7yH",
+    "definition_workflow_01PP78DJMXS415nTjonujf03ROkr6t2PNyw",
+    "definition_workflow_01PP790MKJNWV6XyJuLdUyNlM2UV3JJACez",
+    "definition_workflow_01PP78TYLE76D6188QkWvzWydNU6L8PtlvS",
     "definition_workflow_01JANGI152PWM5WXe1bvW1lHwfhcBNBpd6M",
-    "definition_workflow_01PP78TYLE76D6188QkWvzWydNU6L8PtlvS"
+    "definition_workflow_01PP75X6VPQNK4hKE1XQXIMeIcHrE1khIML"
   ],
   "remotemetas": {
     "remote_meta_01UGJCXCG645H5PfGr6qFXxmyYwryIhhR6f": {
@@ -2419,5 +2451,13 @@
       "unique_name": "remote_meta_01UGJCXCG645H5PfGr6qFXxmyYwryIhhR6f",
       "object_type": "remote_meta"
     }
-  }
+  },
+  "dependent_workflows": [
+    "definition_workflow_01VZ56WAONG3P1dyKtrQNdsN1BQnFRitWbe",
+    "definition_workflow_01QNMUXQ1GBNG6CUURvLmmcvEUYrv83OrZV",
+    "definition_workflow_01PP75S3LTBW4420OZU3rdHWKHFnE6aC7yH",
+    "definition_workflow_01PP78TYLE76D6188QkWvzWydNU6L8PtlvS",
+    "definition_workflow_01JANGI152PWM5WXe1bvW1lHwfhcBNBpd6M",
+    "definition_workflow_01SAMNFWWJXFZ0HvEESDgY4Z0JTqbPylfQ7"
+  ]
 }
