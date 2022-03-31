@@ -42,7 +42,7 @@ There are multiple components required to automate the process. Here are the hig
 
 1. Login to SXO Remote VM and install python  
     `sudo apt-get update`  
-    `sudo apt-get install python3.8 python3-pip python3.8-venv`
+    `sudo apt-get install python3.8 python3-pip python3.8-venv`  
     `mkdir /home/ubuntu/SecValidation && python3 -m venv /home/ubuntu/SecValidation/venv`
 2. Download repo to /home/ubuntu/SecValidation/ and test /home/ubuntu/runMyAPI.sh. Install missing dependencies from requirements.txt
 3. Update root crontab to automatically start the python script  
