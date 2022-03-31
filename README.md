@@ -34,19 +34,19 @@ There are multiple components required to automate the process. Here are the hig
 *   Webex bot and credentials for sending message. Check [Webex and SecureX document](https://ciscosecurity.github.io/sxo-05-security-workflows/atomics/configuration/webex) for details.  
     If this is not required, please skip and disable Webex activities from SXO workflow.
 
-# Installation
+## Installation
 
 ### SXO VM Preparation
 
-1.  Login to SXO Remote VM and install python  
+1. Login to SXO Remote VM and install python  
     `sudo apt-get update`  
-    `sudo apt install python3.8-venv`
-2.  Download repo and install dependencies.
-3.  Update root crontab to automatically start the python script  
+    `sudo apt-get install python3.8 python3-pip python3.8-venv`
+2. Download repo to /home/ubuntu/SecValidation/ and test /home/ubuntu/runMyAPI.sh. Install missing dependencies from requirements.txt
+3. Update root crontab to automatically start the python script  
     `crontab -e`  
     `#Add this to the end of the crontab:`  
     `@reboot su -c '/home/ubuntu/runMyAPI.sh' -s /usr/bin/bash ubuntu 2>&1`
-4.  Reboot SXO VM and confirm the scripts are running.
+4. Reboot SXO VM and confirm the scripts are running.
 
 ### SecureX Workflow - Umbrella DNS Validation
 
