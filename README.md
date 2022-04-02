@@ -108,6 +108,6 @@ This workflow will launch a dummy Log4j attempt to one of your internal web serv
 1. Download and deploy "Dashboard_Relay" to your server.
 2. Rename "config.py.example" to "config.py" with your JWT keys
 3. Update "SECUREX_CLIENT" with your SecureX API client credential, with permission to casebook in order to retrieve test results.
-4. Update SecureX URL in utls.py and dashboard.py, if not in SecureX APJC region.
+4. Update SecureX URL in utils.py and dashboard.py, if not in SecureX APJC region.
 5. Add a new "Generic Serverless Relay" module and enable the tile to the dashboard.    
     ![](screenshot/tile.png)
